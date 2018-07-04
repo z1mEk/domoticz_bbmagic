@@ -129,4 +129,6 @@ class BBMagic:
                 d['meteo_hum'] = self.bbm_buf[self.BBM_METEO_HUM]
                 #d['meteo_temp'] = self.bbm_buf[self.BBM_METEO_TEMPER_MSB] #self.bbm_buf[self.BBM_METEO_TEMPER_LSB]
                 d['meteo_light'] = self.bbm_buf[self.BBM_METEO_LIGHT]
+            else:
+                d['err_message'] = "Unknown device type"
 return d
