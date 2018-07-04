@@ -18,14 +18,59 @@ from bbm_class import BBMagic
 from time import sleep
 
 class BasePlugin:
-
+ 
+    bbm = BBMagic()
+    
+    def createDevices(self, bjData):
+        Domoticz.Log("Check and create devices")
+        device_type = bjData['device_type']
+        mac = bjData['mac']
+    
+    def scanBBMagicDevices(self):
+        Domoticz.Log("Scan BBMagic devices")
+        bjData = bbm.bbm_bt_read_json()
+        result = bjData['result']
+        if result > 0:
+            createDevices(bjData)
+        elif result == 0:
+            Domotic.Log("no bt data arrived")
+        elif result == -1:
+            Domoticz.Log("user break (ctrl+C)")
+        elif result == -2:
+            Domoticz.Log("data red ; not HCI event pocket")
+        elif result == -4:
+            Domoticz.Log("red HCI event pocket ; not LE Advertising Report event")
+        elif result == -6:
+            Domoticz.Log("red HCI event pocket LE Advertising Report event ; not Manufacturer specific data")
+        elif result == -9:
+            Domoticz.Log("reserved for: wrong Manufacturer ID")
+        elif result == -10:
+            Domoticz.Log("authentication error")
+        elif result == -12:
+            Domoticz.Log("other error")
+            
     def onStart(self):
         if Parameters["Mode6"] == "Debug":
             Domoticz.Debugging(1)
         Domoticz.Debug("onStart called")
-
+        i = bbm.bbm_bt_lib_version()
+        Domoticz.Log("BBMagic library version is {0}".format(i))
+        if i > 102:
+            i = bbm.bbm_bt_lib_open(17)
+            if i == 0:
+                Domoticz.Log("bbm_bt_lib_open: OK")
+            else:
+                Domoticz.Log("bbm_bt_lib_open: Some errors occured")
+        else:
+            Domoticz.Log("Incompatibile bmmagic_lib {}".format(i))
+        
     def onStop(self):
         Domoticz.Log("onStop called")
+        i = bbm.bbm_bt_close()
+        if i == 0:
+            Domoticz.Log("bbm_bt_lib_close: OK")
+        else:
+            Domoticz.Log("bbm_bt_lib_close: Some errors occured")
 
     def onConnect(self, Connection, Status, Description):
         Domoticz.Debug("onConnect called. Status: " + str(Status))
@@ -44,6 +89,7 @@ class BasePlugin:
 
     def onHeartbeat(self):
         Domoticz.Debug("onHeartbeat called. Connected: " + str(self.isConnected))
+        scanBBMagicDevices(self)
 
 global _plugin
 _plugin = BasePlugin()
