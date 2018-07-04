@@ -93,10 +93,10 @@ class BBMagic:
         if i > 0 :
             d['raw'] = self.bbm_buf
             
-            worktime = self.BBMGIC_DEVICE_WORKTIME_3 * 0xFFFFFF
-            worktime += self.BBMGIC_DEVICE_WORKTIME_2 * 0xFFFF
-            worktime += self.BBMGIC_DEVICE_WORKTIME_1 * 0xFF
-            worktime += self.BBMGIC_DEVICE_WORKTIME_0
+            worktime = self.BBMAGIC_DEVICE_WORKTIME_3 * 0xFFFFFF
+            worktime += self.BBMAGIC_DEVICE_WORKTIME_2 * 0xFFFF
+            worktime += self.BBMAGIC_DEVICE_WORKTIME_1 * 0xFF
+            worktime += self.BBMAGIC_DEVICE_WORKTIME_0
             d['worktime'] = worktime
 
             device_mac = ''
