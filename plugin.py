@@ -1,5 +1,5 @@
 """
-<plugin key="BBMagic" name="BBMagic BLE" author="z1mEk" version="1.0.0" wikilink="" externallink="https://http://bbmagic.net/">
+<plugin key="BBMagic" name="BBMagic BLE" author="z1mEk" version="1.0.0" wikilink="" externallink="http://bbmagic.net/">
     <description>
 
     </description>
