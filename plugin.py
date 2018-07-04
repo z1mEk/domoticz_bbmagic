@@ -32,8 +32,6 @@ class BasePlugin:
         result = bjData['result']
         if result > 0:
             createDevices(bjData)
-        elif result == 0:
-            Domotic.Log("no bt data arrived")
         elif result == -1:
             Domoticz.Log("user break (ctrl+C)")
         elif result == -2:
