@@ -131,4 +131,4 @@ class BBMagic:
                 d['meteo_light'] = self.bbm_buf[self.BBM_METEO_LIGHT]
             else:
                 d['err_message'] = "Unknown device type"
-return d
+        return d
