@@ -16,7 +16,7 @@
 """
 
 import Domoticz
-from bbm_class import BBMagic
+#from bbm_class import BBMagic
 
 class BasePlugin:
  
@@ -89,7 +89,7 @@ class BasePlugin:
         Domoticz.Debug("onDisconnect called")
 
     def onHeartbeat(self):
-        Domoticz.Debug("onHeartbeat called. Connected: " + str(self.isConnected))
+        Domoticz.Debug("onHeartbeat called")
         #scanBBMagicDevices(self)
 
 global _plugin
