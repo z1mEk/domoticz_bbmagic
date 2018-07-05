@@ -15,10 +15,13 @@
 </plugin>
 """
 
-import os.path
+import os
 import sys
-HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
+
+module_paths = [x[0] for x in os.walk( os.path.join(os.path.dirname(__file__), '.', '.env/lib/') ) if x[0].endswith('site-packages') ]
+for mp in module_paths:
+    sys.path.append(mp)
+
 from bbm_class import BBMagic
 
 class BasePlugin:
