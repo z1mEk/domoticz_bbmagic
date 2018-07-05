@@ -15,10 +15,8 @@
 </plugin>
 """
 
-import os
-import sys
-sys.path.append(os.path.dirname(__file__))
-#from bbm_class import BBMagic
+import Domoticz
+from bbm_class import BBMagic
 
 class BasePlugin:
  
