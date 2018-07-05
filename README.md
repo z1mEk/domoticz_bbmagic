@@ -10,8 +10,6 @@ cd /home/pi/domoticz/plugins
 2. Clone plugin repository.
 ```bash
 sudo git clone https://github.com/z1mEk/domoticz_bbmagic.git bbmagic
-cd bbmagic
-sudo sh install.sh
 ```
 3. Change directory to bbmagic
 ```bash
