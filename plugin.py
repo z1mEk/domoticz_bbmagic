@@ -16,11 +16,11 @@
 """
 
 import Domoticz
-#from bbm_class import BBMagic
+from bbm_class import BBMagic
 
 class BasePlugin:
  
-    #bbm = BBMagic()
+    bbm = BBMagic()
     
     def createDevices(self, bjData):
         Domoticz.Log("Check and create devices")
@@ -54,8 +54,8 @@ class BasePlugin:
         if Parameters["Mode6"] == "Debug":
             Domoticz.Debugging(1)
         Domoticz.Debug("onStart called")
-        #i = bbm.bbm_bt_lib_version()
-        #Domoticz.Log("BBMagic library version is {0}".format(i))
+        i = bbm.bbm_bt_lib_version()
+        Domoticz.Log("BBMagic library version is {0}".format(i))
         #if i > 102:
         #    i = bbm.bbm_bt_lib_open(17)
         #    if i == 0:
