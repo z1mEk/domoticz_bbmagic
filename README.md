@@ -1,6 +1,8 @@
 # Domoticz plugin for BBMagic BLE device
 Domoticz plugin supported the BBMagic BLE device
 
+# !!! In Domoticz there is a known problem with importing the ctypes library - that's why the plugin is not ready.
+
 ## Install
 
 1. Go to plugin directory in your Domoticz home directory. 
@@ -19,5 +21,3 @@ cd bbmagic
 ```bash
 sudo sh install.sh
 ```
-
-The plugin is not ready yet!!!
