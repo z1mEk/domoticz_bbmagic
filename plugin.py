@@ -17,11 +17,7 @@
 
 import os
 import sys
-
-module_paths = [x[0] for x in os.walk( os.path.join(os.path.dirname(__file__), '.', '.env/lib/') ) if x[0].endswith('site-packages') ]
-for mp in module_paths:
-    sys.path.append(mp)
-
+sys.path.append(os.path.dirname(__file__))
 from bbm_class import BBMagic
 
 class BasePlugin:
