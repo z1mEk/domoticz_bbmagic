@@ -1,7 +1,8 @@
 """
 <plugin key="BBMagic" name="BBMagic BLE" author="z1mEk" version="1.0.0" wikilink="" externallink="http://bbmagic.net/">
     <description>
-
+        <p>BBMagic is a wireless, ultra low power, BBMagic module with Bluetooth Low Energy (BLE) communication.</p>
+        <p>The project website is here: <a href="http://bbmagic.net/">http://bbmagic.net/</a></p>
     </description>
     <params>
         <param field="Mode6" label="Debug" width="75px">
